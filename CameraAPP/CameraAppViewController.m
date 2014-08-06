@@ -61,6 +61,7 @@
         picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
         [picker setAllowsEditing:YES];
         NSLog(@"testttt");
+        NSLog(@"added this line after branch added (newbranchtest)");
         [self presentViewController:picker animated:YES completion:NULL];
         
     }
