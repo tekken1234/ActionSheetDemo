@@ -60,9 +60,7 @@
         picker.allowsEditing = YES;
         picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
         [picker setAllowsEditing:YES];
-        NSLog(@"testttt");
-        NSLog(@"added this line after branch added (newbranchtest)");
-        NSLog(@"This is new test for pull and push");
+        
         [self presentViewController:picker animated:YES completion:NULL];
         
     }
