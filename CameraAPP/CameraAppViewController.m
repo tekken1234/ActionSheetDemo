@@ -60,6 +60,7 @@
         picker.allowsEditing = YES;
         picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
         [picker setAllowsEditing:YES];
+        NSLog(@"testttt");
         [self presentViewController:picker animated:YES completion:NULL];
         
     }
