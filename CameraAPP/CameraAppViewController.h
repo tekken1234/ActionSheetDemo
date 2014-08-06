@@ -11,14 +11,16 @@
 #import <AVFoundation/AVFoundation.h>
 
 
-@interface CameraAppViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIDocumentInteractionControllerDelegate> {
+
+@interface CameraAppViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
 
 NSURL *targetURL;
 BOOL isCamera;
-    
+  
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, atomic) ALAssetsLibrary* libraryFolder;
 
 - (IBAction)selectPhoto:(id)sender;
 - (IBAction)TakePhoto:(id)sender;

@@ -21,6 +21,7 @@
 		843C42CB198F39CA00368837 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 843C42C9198F39CA00368837 /* InfoPlist.strings */; };
 		843C42CD198F39CA00368837 /* CameraAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C42CC198F39CA00368837 /* CameraAPPTests.m */; };
 		843C42D7198F3AAD00368837 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843C42D6198F3AAD00368837 /* iPad.storyboard */; };
+		84FCDF38199212DF00AA795B /* CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FCDF37199212DF00AA795B /* CustomPhotoAlbum.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		843C42CA198F39CA00368837 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		843C42CC198F39CA00368837 /* CameraAPPTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraAPPTests.m; sourceTree = "<group>"; };
 		843C42D6198F3AAD00368837 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		84FCDF36199212DF00AA795B /* CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPhotoAlbum.h; sourceTree = "<group>"; };
+		84FCDF37199212DF00AA795B /* CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPhotoAlbum.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 			children = (
 				843C42D8198F3CA200368837 /* iPad */,
 				843C42B0198F39C900368837 /* CameraAppAppDelegate.h */,
+				84FCDF36199212DF00AA795B /* CustomPhotoAlbum.h */,
+				84FCDF37199212DF00AA795B /* CustomPhotoAlbum.m */,
 				843C42B1198F39C900368837 /* CameraAppAppDelegate.m */,
 				843C42B3198F39C900368837 /* iPhone.storyboard */,
 				843C42D6198F3AAD00368837 /* iPad.storyboard */,
@@ -278,6 +283,7 @@
 				843C42B8198F39C900368837 /* CameraAppViewController.m in Sources */,
 				843C42AE198F39C900368837 /* main.m in Sources */,
 				843C42B2198F39C900368837 /* CameraAppAppDelegate.m in Sources */,
+				84FCDF38199212DF00AA795B /* CustomPhotoAlbum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

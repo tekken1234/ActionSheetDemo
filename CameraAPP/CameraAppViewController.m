@@ -7,6 +7,7 @@
 //
 
 #import "CameraAppViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface CameraAppViewController ()
 
@@ -19,11 +20,42 @@
     targetURL = [[NSURL alloc] init];
     isCamera = FALSE;
     
+    
 
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
- 
+    
+  
+    
+    // add custom photo album name with app
+    ALAssetsLibrary* libraryFolder = [[ALAssetsLibrary alloc] init];
+    [libraryFolder addAssetsGroupAlbumWithName:@"燁光相機APP" resultBlock:^(ALAssetsGroup *group)
+    {
+        NSLog(@"Adding Folder:'燁光相機APP', success: %s", group.editable ? "Success" : "Already created: Not Success");
+    } failureBlock:^(NSError *error)
+    {
+        NSLog(@"Error: Adding on Folder");
+    }];
+    
 }
+
+
+
+
+//
+- (void)writeImageToSavedPhotosAlbum:(CGImageRef)imageRef metadata:(NSDictionary *)metadata completionBlock:(ALAssetsLibraryWriteImageCompletionBlock)completionBlock {
+    
+}
+
+
+//
+- (void)writeImageToSavedPhotosAlbum:(CGImageRef)imageRef orientation:(ALAssetOrientation)orientation completionBlock:(ALAssetsLibraryWriteImageCompletionBlock)completionBlock {
+    
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
