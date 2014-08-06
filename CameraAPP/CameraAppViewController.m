@@ -155,6 +155,47 @@
                                            self,
                                            @selector(image:didFinishSavingWithError:contextInfo:),
                                            nil);
+     /*
+      
+      // new method discover on the net
+      
+      NSString *albumName=@"Urban Alphabets";
+      ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+      __block ALAssetsGroup* groupToAddTo;
+      
+      [library enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+      
+        if ([[group valueForProperty:ALAssetsGroupPropertyName] isEqualToString:albumName]) {
+        groupToAddTo = group;
+        }
+      }
+      
+      failureBlock:^(NSError* error) {
+      
+      }];
+      
+      CGImageRef img = [croppedImage CGImage];
+      [library writeImageToSavedPhotosAlbum:img metadata:nil completionBlock:^(NSURL* assetURL, NSError* error)
+       {
+            if (error.code == 0) 
+            {
+      
+            // try to get the asset
+            [library assetForURL:assetURL resultBlock:^(ALAsset *asset) {
+                // assign the photo to the album
+                [groupToAddTo addAsset:asset];
+                }
+                failureBlock:^(NSError* error) {
+            }
+            ];
+            }
+            else {
+            }
+        }
+       ];
+      
+      
+     */ 
 			
 		}
 	
