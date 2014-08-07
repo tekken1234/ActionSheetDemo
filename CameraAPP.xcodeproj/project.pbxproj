@@ -173,7 +173,39 @@
 		843C42A7198F39C900368837 /* CameraAPP */ = {
 			isa = PBXGroup;
 			children = (
-				843C42D8198F3CA200368837 /* iPad */,
+				84FCDF3C19937D3900AA795B /* ALAsset+accessibilityLabel.h */,
+				84FCDF3D19937D3900AA795B /* ALAsset+accessibilityLabel.m */,
+				84FCDF3E19937D3900AA795B /* ALAsset+assetType.h */,
+				84FCDF3F19937D3900AA795B /* ALAsset+assetType.m */,
+				84FCDF4019937D3900AA795B /* ALAsset+isEqual.h */,
+				84FCDF4119937D3900AA795B /* ALAsset+isEqual.m */,
+				84FCDF4219937D3900AA795B /* ALAssetsGroup+isEqual.h */,
+				84FCDF4319937D3900AA795B /* ALAssetsGroup+isEqual.m */,
+				84FCDF4419937D3900AA795B /* CTAssetItemViewController.h */,
+				84FCDF4519937D3900AA795B /* CTAssetItemViewController.m */,
+				84FCDF4619937D3900AA795B /* CTAssetScrollView.h */,
+				84FCDF4719937D3900AA795B /* CTAssetScrollView.m */,
+				84FCDF4819937D3900AA795B /* CTAssetsGroupViewCell.h */,
+				84FCDF4919937D3900AA795B /* CTAssetsGroupViewCell.m */,
+				84FCDF4A19937D3900AA795B /* CTAssetsGroupViewController.h */,
+				84FCDF4B19937D3900AA795B /* CTAssetsGroupViewController.m */,
+				84FCDF4C19937D3900AA795B /* CTAssetsPageViewController.h */,
+				84FCDF4D19937D3900AA795B /* CTAssetsPageViewController.m */,
+				84FCDF4E19937D3900AA795B /* CTAssetsPicker.xcassets */,
+				84FCDF4F19937D3900AA795B /* CTAssetsPickerConstants.h */,
+				84FCDF5019937D3900AA795B /* CTAssetsPickerConstants.m */,
+				84FCDF5119937D3900AA795B /* CTAssetsPickerController.h */,
+				84FCDF5219937D3900AA795B /* CTAssetsPickerController.m */,
+				84FCDF5319937D3900AA795B /* CTAssetsSupplementaryView.h */,
+				84FCDF5419937D3900AA795B /* CTAssetsSupplementaryView.m */,
+				84FCDF5519937D3900AA795B /* CTAssetsViewCell.h */,
+				84FCDF5619937D3900AA795B /* CTAssetsViewCell.m */,
+				84FCDF5719937D3900AA795B /* CTAssetsViewController.h */,
+				84FCDF5819937D3900AA795B /* CTAssetsViewController.m */,
+				84FCDF5919937D3900AA795B /* CTAssetsViewControllerTransition.h */,
+				84FCDF5A19937D3900AA795B /* CTAssetsViewControllerTransition.m */,
+				84FCDF5B19937D3900AA795B /* NSDateFormatter+timeIntervalFormatter.h */,
+				84FCDF5C19937D3900AA795B /* NSDateFormatter+timeIntervalFormatter.m */,
 				843C42B0198F39C900368837 /* CameraAppAppDelegate.h */,
 				84FCDF36199212DF00AA795B /* CustomPhotoAlbum.h */,
 				84FCDF37199212DF00AA795B /* CustomPhotoAlbum.m */,
@@ -214,54 +246,6 @@
 				843C42C9198F39CA00368837 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		843C42D8198F3CA200368837 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-				84FCDF3B19937CD000AA795B /* ImagePicker */,
-			);
-			name = iPad;
-			sourceTree = "<group>";
-		};
-		84FCDF3B19937CD000AA795B /* ImagePicker */ = {
-			isa = PBXGroup;
-			children = (
-				84FCDF3C19937D3900AA795B /* ALAsset+accessibilityLabel.h */,
-				84FCDF3D19937D3900AA795B /* ALAsset+accessibilityLabel.m */,
-				84FCDF3E19937D3900AA795B /* ALAsset+assetType.h */,
-				84FCDF3F19937D3900AA795B /* ALAsset+assetType.m */,
-				84FCDF4019937D3900AA795B /* ALAsset+isEqual.h */,
-				84FCDF4119937D3900AA795B /* ALAsset+isEqual.m */,
-				84FCDF4219937D3900AA795B /* ALAssetsGroup+isEqual.h */,
-				84FCDF4319937D3900AA795B /* ALAssetsGroup+isEqual.m */,
-				84FCDF4419937D3900AA795B /* CTAssetItemViewController.h */,
-				84FCDF4519937D3900AA795B /* CTAssetItemViewController.m */,
-				84FCDF4619937D3900AA795B /* CTAssetScrollView.h */,
-				84FCDF4719937D3900AA795B /* CTAssetScrollView.m */,
-				84FCDF4819937D3900AA795B /* CTAssetsGroupViewCell.h */,
-				84FCDF4919937D3900AA795B /* CTAssetsGroupViewCell.m */,
-				84FCDF4A19937D3900AA795B /* CTAssetsGroupViewController.h */,
-				84FCDF4B19937D3900AA795B /* CTAssetsGroupViewController.m */,
-				84FCDF4C19937D3900AA795B /* CTAssetsPageViewController.h */,
-				84FCDF4D19937D3900AA795B /* CTAssetsPageViewController.m */,
-				84FCDF4E19937D3900AA795B /* CTAssetsPicker.xcassets */,
-				84FCDF4F19937D3900AA795B /* CTAssetsPickerConstants.h */,
-				84FCDF5019937D3900AA795B /* CTAssetsPickerConstants.m */,
-				84FCDF5119937D3900AA795B /* CTAssetsPickerController.h */,
-				84FCDF5219937D3900AA795B /* CTAssetsPickerController.m */,
-				84FCDF5319937D3900AA795B /* CTAssetsSupplementaryView.h */,
-				84FCDF5419937D3900AA795B /* CTAssetsSupplementaryView.m */,
-				84FCDF5519937D3900AA795B /* CTAssetsViewCell.h */,
-				84FCDF5619937D3900AA795B /* CTAssetsViewCell.m */,
-				84FCDF5719937D3900AA795B /* CTAssetsViewController.h */,
-				84FCDF5819937D3900AA795B /* CTAssetsViewController.m */,
-				84FCDF5919937D3900AA795B /* CTAssetsViewControllerTransition.h */,
-				84FCDF5A19937D3900AA795B /* CTAssetsViewControllerTransition.m */,
-				84FCDF5B19937D3900AA795B /* NSDateFormatter+timeIntervalFormatter.h */,
-				84FCDF5C19937D3900AA795B /* NSDateFormatter+timeIntervalFormatter.m */,
-			);
-			name = ImagePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
