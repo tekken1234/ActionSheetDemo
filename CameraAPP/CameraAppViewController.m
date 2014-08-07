@@ -39,7 +39,9 @@
 
 }
 
-
+- (void)assetsPickerController:(CTAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets {
+    // assets contains ALAsset objects.
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -71,10 +73,15 @@
 }
 
 - (IBAction)createAlbum:(UIButton *)sender {
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Add New Album", @"new_list_dialog")
                                                           message:@"Plasse name it below" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK",nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [[alert textFieldAtIndex:0] setPlaceholder:@"New Album Name Here!"];
+    NSDate *nowDate = [NSDate date];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"EEE-MMM-DD"];
+    NSString *locationString = [df stringFromDate:nowDate];
+    [[alert textFieldAtIndex:0] setText:locationString];
     [alert show];
     
     
@@ -117,29 +124,38 @@
     }
 }
 
+
+- (BOOL)assetsPickerController:(CTAssetsPickerController *)picker shouldShowAssetsGroup:(ALAssetsGroup *)group
+{
+    // Do not show empty albums
+    return ((![[group valueForProperty:ALAssetsGroupPropertyName] isEqualToString:@"Camera Roll"]) && (group.numberOfAssets > 0) && (1 == 1));
+}
 - (IBAction)selectPhoto:(id)sender {
-  // select photo from camera roll
+  
+    CTAssetsPickerController *picker = [[CTAssetsPickerController alloc] init];
+    picker.delegate = self;
+    [self presentViewController:picker animated:YES completion:nil];
+    
+    /*
+    // select photo from camera roll
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
         UIImagePickerController *picker = [[UIImagePickerController alloc]init];
         
         picker.delegate = self;
         picker.allowsEditing = YES;
- //       picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-   //     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary
+        picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
         
         [self presentViewController:picker animated:YES completion:NULL];
         
     }
-
+   
+   */
 
 
 
 
 }
 
-
-
-    
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {

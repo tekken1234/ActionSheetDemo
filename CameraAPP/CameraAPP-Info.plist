@@ -28,8 +28,6 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UILaunchImageFile~ipad</key>
-	<string>DefaultiPad.png</string>
 	<key>UIMainStoryboardFile</key>
 	<string>iPad</string>
 	<key>UIMainStoryboardFile~ipad</key>
