@@ -14,9 +14,11 @@
 
 @interface CameraAppViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
 
-NSURL *targetURL;
-BOOL isCamera;
-  
+    NSURL *targetURL;
+    BOOL isCamera;
+    UITextField *textField;
+    BOOL useNewAddedAlbum;
+    NSString *albumName;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -25,7 +27,8 @@ BOOL isCamera;
 - (IBAction)selectPhoto:(id)sender;
 - (IBAction)TakePhoto:(id)sender;
 - (IBAction)share:(id)sender;
-
+- (IBAction)createAlbum:(UIButton *)sender;
+- (IBAction)switch:(id)sender;
 
 
 @end

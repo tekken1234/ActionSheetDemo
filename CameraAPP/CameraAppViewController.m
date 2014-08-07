@@ -19,7 +19,7 @@
 {
     targetURL = [[NSURL alloc] init];
     isCamera = FALSE;
-    
+    useNewAddedAlbum = FALSE;
     
 
     [super viewDidLoad];
@@ -36,13 +36,8 @@
     {
         NSLog(@"Error: Adding on Folder");
     }];
-    
+
 }
-
-
-
-
-
 
 
 
@@ -51,6 +46,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 - (IBAction)TakePhoto:(id)sender {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -73,6 +70,53 @@
     [self presentViewController:controller animated:YES completion:nil];
 }
 
+- (IBAction)createAlbum:(UIButton *)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Add New Album", @"new_list_dialog")
+                                                          message:@"Plasse name it below" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK",nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [[alert textFieldAtIndex:0] setPlaceholder:@"New Album Name Here!"];
+    [alert show];
+    
+    
+    
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+    {
+        
+        textField =  [alertView textFieldAtIndex: 0];
+       
+        NSLog(@"buttonindex is : %i", buttonIndex);
+        NSLog(@"string entered=%@", textField);
+        if (buttonIndex == 1) {
+        ALAssetsLibrary* libraryFolder = [[ALAssetsLibrary alloc] init];
+        NSString *newAlbumName =[[NSString alloc]initWithFormat:@"%@", textField.text];
+        [libraryFolder addAssetsGroupAlbumWithName:newAlbumName resultBlock:^(ALAssetsGroup *group)
+         {
+             NSLog(@"Adding Folder:%@, success: %s", newAlbumName , group.editable ? "Success" : "Already created: Not Success");
+         } failureBlock:^(NSError *error)
+         {
+             NSLog(@"Error!");
+         }];
+
+        }else{
+            return;
+        }
+    }
+
+- (IBAction)switch:(id)sender {
+    {
+        UISwitch *switchView = (UISwitch *)sender;
+        if ([switchView isOn])  {
+            useNewAddedAlbum = TRUE;
+     //     NSLog(@"textfield is : %@", textField.text);
+        } else {
+            useNewAddedAlbum = FALSE;
+        }
+    }
+}
+
 - (IBAction)selectPhoto:(id)sender {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
         UIImagePickerController *picker = [[UIImagePickerController alloc]init];
@@ -80,7 +124,7 @@
         picker.delegate = self;
         picker.allowsEditing = YES;
         picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-        [picker setAllowsEditing:YES];
+        
         
         [self presentViewController:picker animated:YES completion:NULL];
         
@@ -136,18 +180,27 @@
         
         [myDefault setValue:fileName forKey:@"fileName"];
 		NSLog(@"filename now is : %@",fileName);
+        
+       if (useNewAddedAlbum) {
+            albumName = [NSString stringWithString:textField.text];
+        }
+        else{
+            albumName = [NSString stringWithFormat:@"燁光相機APP"];
+        }
+        
         if (isCamera) //判定，避免重复保存
 		{
 		
       
       // new method discover on the net
       
-      NSString *albumName=@"燁光相機APP";
+      
+      
       ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
       __block ALAssetsGroup* foder;
       
       [library enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-      
+      //    NSLog(@"textfield is : %@ again", textField.text);
         if ([[group valueForProperty:ALAssetsGroupPropertyName] isEqualToString:albumName]) {
         foder = group;
         }
@@ -183,7 +236,6 @@
       
 			
 		}
-        
 		[self performSelector:@selector(saveImg:) withObject:image afterDelay:0.0];
 		
 	}
@@ -198,6 +250,7 @@
 {
 	NSLog(@"Cancle it");
 	isCamera = FALSE;
+    useNewAddedAlbum = FALSE;
 	[picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -267,7 +320,5 @@
                                  otherButtonTitles:nil];
     [alert show];
 }
-
-
 
 @end
