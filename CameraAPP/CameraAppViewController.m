@@ -42,17 +42,6 @@
 
 
 
-//
-- (void)writeImageToSavedPhotosAlbum:(CGImageRef)imageRef metadata:(NSDictionary *)metadata completionBlock:(ALAssetsLibraryWriteImageCompletionBlock)completionBlock {
-    
-}
-
-
-//
-- (void)writeImageToSavedPhotosAlbum:(CGImageRef)imageRef orientation:(ALAssetOrientation)orientation completionBlock:(ALAssetsLibraryWriteImageCompletionBlock)completionBlock {
-    
-}
-
 
 
 
@@ -110,25 +99,25 @@
     
 	NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
 	/*
-	if([mediaType isEqualToString:@"public.movie"])			//被选中的是视频
+	if([mediaType isEqualToString:@"public.movie"])			//如果是影像檔案
 	{
 		NSURL *url = [info objectForKey:UIImagePickerControllerMediaURL];
-		targetURL = url;		//视频的储存路径
+		targetURL = url;		//檔案的路徑
 		
 		if (!(isCamera))
 		{
-			//保存视频到相册
+			//保存到
 			ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
 			[library writeVideoAtPathToSavedPhotosAlbum:url completionBlock:nil];
 			
 		}
 		
-		//获取视频的某一帧作为预览
+		//get one pixel from video
        // [self getPreViewImg:url];
 	} */
-	if ([mediaType isEqualToString:@"public.image"])	//被选中的是图片
+	if ([mediaType isEqualToString:@"public.image"])	//如果是照片
     {
-        //获取照片实例
+        //取得照片
 		UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
 		
         NSString *fileName = [[NSString alloc] init];
@@ -149,41 +138,37 @@
 		NSLog(@"filename now is : %@",fileName);
         if (isCamera) //判定，避免重复保存
 		{
-			//保存到相册
-            
-			UIImageWriteToSavedPhotosAlbum(image,
-                                           self,
-                                           @selector(image:didFinishSavingWithError:contextInfo:),
-                                           nil);
-     /*
+		
       
       // new method discover on the net
       
-      NSString *albumName=@"Urban Alphabets";
+      NSString *albumName=@"燁光相機APP";
       ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-      __block ALAssetsGroup* groupToAddTo;
+      __block ALAssetsGroup* foder;
       
       [library enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
       
         if ([[group valueForProperty:ALAssetsGroupPropertyName] isEqualToString:albumName]) {
-        groupToAddTo = group;
+        foder = group;
         }
       }
       
       failureBlock:^(NSError* error) {
       
       }];
-      
-      CGImageRef img = [croppedImage CGImage];
-      [library writeImageToSavedPhotosAlbum:img metadata:nil completionBlock:^(NSURL* assetURL, NSError* error)
+            
+            [library writeImageToSavedPhotosAlbum:[image CGImage]
+									  orientation:(ALAssetOrientation)[image imageOrientation]
+								  completionBlock:^(NSURL* assetURL, NSError* error)
+           
        {
-            if (error.code == 0) 
+            if (error.code == 0)
             {
       
             // try to get the asset
             [library assetForURL:assetURL resultBlock:^(ALAsset *asset) {
                 // assign the photo to the album
-                [groupToAddTo addAsset:asset];
+                [foder addAsset:asset];
                 }
                 failureBlock:^(NSError* error) {
             }
@@ -195,10 +180,10 @@
        ];
       
       
-     */ 
+      
 			
 		}
-	
+        
 		[self performSelector:@selector(saveImg:) withObject:image afterDelay:0.0];
 		
 	}
