@@ -118,17 +118,23 @@
 }
 
 - (IBAction)selectPhoto:(id)sender {
+  // select photo from camera roll
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
         UIImagePickerController *picker = [[UIImagePickerController alloc]init];
         
         picker.delegate = self;
         picker.allowsEditing = YES;
-        picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-        
+ //       picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+   //     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary
         
         [self presentViewController:picker animated:YES completion:NULL];
         
     }
+
+
+
+
+
 }
 
 
@@ -181,7 +187,7 @@
         [myDefault setValue:fileName forKey:@"fileName"];
 		NSLog(@"filename now is : %@",fileName);
         
-       if (useNewAddedAlbum) {
+        if (useNewAddedAlbum) {
             albumName = [NSString stringWithString:textField.text];
         }
         else{
@@ -231,9 +237,6 @@
             }
         }
        ];
-      
-      
-      
 			
 		}
 		[self performSelector:@selector(saveImg:) withObject:image afterDelay:0.0];
